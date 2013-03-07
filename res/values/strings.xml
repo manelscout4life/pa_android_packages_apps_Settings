@@ -4613,6 +4613,9 @@
     <string name="cm_sound_mode_sound">Sound</string>
     <string name="cm_sound_mode_soundVibrate">Sound &amp; Vibrate</string>
 
+    <!-- Advanced, Device specific (DeviceParts) settings  -->
+    <string name="advanced_settings_title">Advanced</string>
+
     <!-- Pie controls -->
     <string name="pie_controls_title">Pie controls</string>
 
