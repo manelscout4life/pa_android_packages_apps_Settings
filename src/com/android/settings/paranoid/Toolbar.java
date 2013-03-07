@@ -48,6 +48,7 @@ public class Toolbar extends SettingsPreferenceFragment
     private static final String STATUS_BAR_DONOTDISTURB = "status_bar_donotdisturb";
     private static final String NAV_BAR_CATEGORY = "toolbar_navigation";
     private static final String NAV_BAR_CONTROLS = "navigation_bar_controls";
+    private static final String PIE_ENABLE = "pie_enable";
     private static final String PIE_GRAVITY = "pie_gravity";
     private static final String PIE_MODE = "pie_mode";
     private static final String PIE_SIZE = "pie_size";
@@ -72,6 +73,7 @@ public class Toolbar extends SettingsPreferenceFragment
     private CheckBoxPreference mStatusBarNotifCount;
     private CheckBoxPreference mMenuButtonShow;
     private CheckBoxPreference mStatusBarDoNotDisturb;
+    private CheckBoxPreference mPieEnable;
     private CheckBoxPreference mPieMenu;
     private CheckBoxPreference mPieSearch;
     private CheckBoxPreference mPieCenter;
@@ -102,6 +104,10 @@ public class Toolbar extends SettingsPreferenceFragment
         mCircleBattery = (CheckBoxPreference) prefSet.findPreference(KEY_CIRCLE_BATTERY);
         mCircleBattery.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.STATUS_BAR_CIRCLE_BATTERY, 0) == 1);
+
+       mPieEnable = (CheckBoxPreference) prefSet.findPreference(PIE_ENABLE);
+       mPieEnable.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+               Settings.System.PIE_ENABLE, 1) == 1);
 
         mPieMenu = (CheckBoxPreference) prefSet.findPreference(PIE_MENU);
         mPieMenu.setChecked(Settings.System.getInt(mContext.getContentResolver(),
@@ -209,6 +215,10 @@ public class Toolbar extends SettingsPreferenceFragment
             mNavigationCategory.removePreference(mNavigationBarControls);
             prefSet.removePreference(mQuickPullDown);
         }
+
+        if (!Utils.hasPhysicalKeys()) {
+            prefSet.removePreference(mPieEnable);
+        }
     }
 
     @Override
@@ -241,6 +251,9 @@ public class Toolbar extends SettingsPreferenceFragment
         } else if (preference == mPieMenu) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PIE_MENU, mPieMenu.isChecked() ? 1 : 0);
+        } else if (preference == mPieEnable) {
+          Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.PIE_ENABLE, mPieEnable.isChecked() ? 1 : 0);
         } else if (preference == mPieSearch) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),  
                     Settings.System.PIE_SEARCH, mPieSearch.isChecked() ? 1 : 0);
