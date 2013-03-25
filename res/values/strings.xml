@@ -4667,6 +4667,9 @@
     <string name="pie_search_title">Search button</string>
     <string name="pie_search_summary">Enable search button on pie controls</string>
 
+    <string name="pie_lastapp_title">Last App button</string>
+    <string name="pie_lastapp_summary">Enable last app button on Pie</string>
+
     <string name="pie_trigger_title">Trigger area</string>
     <string name="pie_trigger_summary">Determine the size of the region that registers swipes</string>
     <string name="pie_trigger_small">@string/pie_size_small</string>
