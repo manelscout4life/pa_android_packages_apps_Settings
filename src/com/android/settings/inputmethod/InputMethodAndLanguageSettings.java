@@ -199,8 +199,7 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
 
         mHandler = new Handler();
         mSettingsObserver = new SettingsObserver(mHandler, getActivity());
-
-       // remove the pointer settings preference category for non stylus devices
+        // remove the pointer settings preference category for non stylus device
         if (!ExtendedPropertiesUtils.hasStylus()) {
             PreferenceCategory pc = (PreferenceCategory) findPreference(KEY_POINTER_SETTINGS);
             if (pc != null) {
