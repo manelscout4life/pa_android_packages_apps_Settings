@@ -109,9 +109,9 @@ public class Toolbar extends SettingsPreferenceFragment
         mCircleBattery.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.STATUS_BAR_CIRCLE_BATTERY, 0) == 1);
 
-       mPieEnable = (CheckBoxPreference) prefSet.findPreference(PIE_ENABLE);
-       mPieEnable.setChecked(Settings.System.getInt(mContext.getContentResolver(),
-               Settings.System.PIE_ENABLE, 1) == 1);
+        mPieEnable = (CheckBoxPreference) prefSet.findPreference(PIE_ENABLE);
+        mPieEnable.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.PIE_ENABLE, 1) == 1);
 
         mPieMenu = (CheckBoxPreference) prefSet.findPreference(PIE_MENU);
         mPieMenu.setChecked(Settings.System.getInt(mContext.getContentResolver(),
@@ -231,6 +231,10 @@ public class Toolbar extends SettingsPreferenceFragment
              PreferenceScreen HARDWARE =(PreferenceScreen) prefSet.findPreference(KEY_HARDWARE_KEYS);
              prefSet.removePreference(HARDWARE);
         }
+
+        if (!Utils.hasPhysicalKeys()) {
+            prefSet.removePreference(mPieEnable);
+        }
     }
 
     @Override
@@ -264,7 +268,7 @@ public class Toolbar extends SettingsPreferenceFragment
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PIE_MENU, mPieMenu.isChecked() ? 1 : 0);
         } else if (preference == mPieEnable) {
-          Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PIE_ENABLE, mPieEnable.isChecked() ? 1 : 0);
         } else if (preference == mPieLastApp) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),

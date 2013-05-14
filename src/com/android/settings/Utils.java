@@ -633,7 +633,7 @@ public class Utils {
         return value > 0;
     }
 
-   public static boolean hasPhysicalKeys(){
-       return ExtendedPropertiesUtils.hasPhysicalKeys();
+    public static boolean hasPhysicalKeys(){
+        return ExtendedPropertiesUtils.hasPhysicalKeys();
     }
 }
