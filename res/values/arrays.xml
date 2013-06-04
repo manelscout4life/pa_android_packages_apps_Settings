@@ -970,6 +970,22 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="entries_pie_angle">
+        <item>@string/pie_angle_none</item>
+        <item>@string/pie_angle_small</item>
+        <item>@string/pie_angle_big</item>
+        <item>@string/pie_angle_huge</item>
+        <item>@string/pie_angle_super</item>
+    </string-array>
+
+    <string-array name="values_pie_angle" translatable="false">
+        <item>0</item>
+        <item>6</item>
+        <item>12</item>
+        <item>18</item>
+        <item>24</item>
+    </string-array>
+
     <string-array name="entries_pie_gap">
         <item>@string/pie_gap_none</item>
         <item>@string/pie_gap_small</item>
@@ -985,6 +1001,7 @@
     </string-array>
 
     <string-array name="entries_pie_trigger">
+        <item>@string/pie_trigger_none</item>
         <item>@string/pie_trigger_small</item>
         <item>@string/pie_trigger_normal</item>
         <item>@string/pie_trigger_big</item>
@@ -992,6 +1009,7 @@
     </string-array>
 
     <string-array name="values_pie_trigger" translatable="false">
+        <item>0.0</item>
         <item>0.5</item>
         <item>1.0</item>
         <item>2.0</item>
@@ -1125,5 +1143,22 @@
         <item>4</item>
         <item>5</item>
     </string-array>
+
+    <!-- Auto-brightness sensitivity -->
+    <string-array name="auto_brightness_sensitivity_entries" translatable="false">
+        <item>@string/auto_brightness_sensitivity_verylow</item>
+        <item>@string/auto_brightness_sensitivity_low</item>
+        <item>@string/auto_brightness_sensitivity_medium</item>
+        <item>@string/auto_brightness_sensitivity_high</item>
+        <item>@string/auto_brightness_sensitivity_veryhigh</item>
+    </string-array>
+
+    <integer-array name="auto_brightness_sensitivity_values">
+        <item>150</item>
+        <item>125</item>
+        <item>100</item>
+        <item>50</item>
+        <item>25</item>
+    </integer-array>
 
 </resources>

@@ -56,6 +56,7 @@ public class Toolbar extends SettingsPreferenceFragment
     private static final String PIE_MODE = "pie_mode";
     private static final String PIE_SIZE = "pie_size";
     private static final String PIE_TRIGGER = "pie_trigger";
+    private static final String PIE_ANGLE = "pie_angle";
     private static final String PIE_GAP = "pie_gap";
     private static final String PIE_LASTAPP = "pie_lastapp";
     private static final String PIE_MENU = "pie_menu";
@@ -70,6 +71,7 @@ public class Toolbar extends SettingsPreferenceFragment
     private ListPreference mPieSize;
     private ListPreference mPieGravity;
     private ListPreference mPieTrigger;
+    private ListPreference mPieAngle;
     private ListPreference mPieGap;
     private CheckBoxPreference mQuickPullDown;
     private CheckBoxPreference mShowClock;
@@ -170,7 +172,7 @@ public class Toolbar extends SettingsPreferenceFragment
         mPieTrigger = (ListPreference) prefSet.findPreference(PIE_TRIGGER);
         try {
             float pieSize = Settings.System.getFloat(mContext.getContentResolver(),
-                    Settings.System.PIE_SIZE, 0.9f);
+                    Settings.System.PIE_SIZE, 1.0f);
             mPieSize.setValue(String.valueOf(pieSize));
   
             float pieTrigger = Settings.System.getFloat(mContext.getContentResolver(),
@@ -185,9 +187,15 @@ public class Toolbar extends SettingsPreferenceFragment
 
         mPieGap = (ListPreference) prefSet.findPreference(PIE_GAP);
         int pieGap = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.PIE_GAP, 3);
+                Settings.System.PIE_GAP, 2);
         mPieGap.setValue(String.valueOf(pieGap));
         mPieGap.setOnPreferenceChangeListener(this);
+
+        mPieAngle = (ListPreference) prefSet.findPreference(PIE_ANGLE);
+        int pieAngle = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.PIE_ANGLE, 12);
+        mPieAngle.setValue(String.valueOf(pieAngle));
+        mPieAngle.setOnPreferenceChangeListener(this);
 
         try {
             if (Settings.System.getInt(getActivity().getContentResolver(),
@@ -313,6 +321,11 @@ public class Toolbar extends SettingsPreferenceFragment
             int pieGravity = Integer.valueOf((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.PIE_GRAVITY, pieGravity);
+            return true;
+        } else if (preference == mPieAngle) {
+            int pieAngle = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.PIE_ANGLE, pieAngle);
             return true;
         } else if (preference == mPieGap) {
             int pieGap = Integer.valueOf((String) newValue);
