@@ -4349,6 +4349,9 @@
 
     <!-- Label for are-notifications-enabled checkbox in app details [CHAR LIMIT=20] -->
     <string name="app_notifications_switch_label">Show notifications</string>
+    <!-- Label for are-notifications-enabled checkbox in app details [CHAR LIMIT=20] -->
+    <string name="app_halo_label_black">Blacklist HALO notifications</string>
+    <string name="app_halo_label_white">Whitelist HALO notifications</string>
 
     <!--  Help URLs for some screens. Not specified here. Specified in product overlays --><skip/>
     <!-- Help menu label [CHAR LIMIT=20] -->
@@ -4526,6 +4529,16 @@
     <string name="tool_bar_status_header">Status bar</string>
     <string name="tool_bar_navigation_header">Navigation bar</string>
 
+    <!-- HALO -->
+    <string name="halo_hide_title">Hide HALO after activity</string>
+    <string name="halo_hide_summary">HALO will appear for incoming tasks and scroll out of sight after a while</string>
+    <string name="halo_reversed_title">Reverse HALO gestures</string>
+    <string name="halo_reversed_summary">Applies tasking or dragging to the double-tap-swipe gesture</string>
+    <string name="halo_state_title">HALO policy</string>
+    <string name="halo_state_summary">For black/white-listing notifications pinging through HALO</string>
+    <string name="halo_state_black">Black list</string>
+    <string name="halo_state_white">White list</string>
+
     <!-- Quick pulldown -->
     <string name="quick_pulldown_title">Quick pulldown</string>
     <string name="quick_pulldown_summary">Edge of status bar will pull down Quick Settings</string>
@@ -4674,6 +4687,7 @@
     <string name="pie_size_default">@string/pie_mode_default</string>
     <string name="pie_size_large">Large</string>
     <string name="pie_size_gigantic">Gigantic</string>
+    <string name="pie_size_monster">Monster</string>
 
     <string name="pie_angle_title">Pie angle</string>
     <string name="pie_angle_summary">Adjust the angle of pie\'s egdes from the attachment</string>
@@ -4710,7 +4724,7 @@
     <string name="pie_trigger_none">None (Pie disabled)</string>
     <string name="pie_trigger_small">@string/pie_size_small</string>
     <string name="pie_trigger_normal">@string/pie_mode_default</string>
-    <string name="pie_trigger_big">@string/pie_gap_big</string>
+    <string name="pie_trigger_big">Big</string>
     <string name="pie_trigger_huge">Huge</string>
 
     <!-- Navigation Bar #CM -->
