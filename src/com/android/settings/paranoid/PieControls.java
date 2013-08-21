@@ -31,7 +31,6 @@ import com.android.settings.SettingsPreferenceFragment;
 public class PieControls extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
-    private static final String PIE_ENABLE = "pie_enable";
     private static final String PIE_GRAVITY = "pie_gravity";
     private static final String PIE_MODE = "pie_mode";
     private static final String PIE_SIZE = "pie_size";
@@ -51,7 +50,6 @@ public class PieControls extends SettingsPreferenceFragment
     private ListPreference mPieAngle;
     private ListPreference mPieGap;
 
-    private CheckBoxPreference mPieEnable;
     private CheckBoxPreference mPieLastApp;
     private CheckBoxPreference mPieMenu;
     private CheckBoxPreference mPieSearch;
@@ -67,10 +65,6 @@ public class PieControls extends SettingsPreferenceFragment
         addPreferencesFromResource(R.xml.pie_settings);
         PreferenceScreen prefSet = getPreferenceScreen();
         mContext = getActivity();
-
-        mPieEnable = (CheckBoxPreference) prefSet.findPreference(PIE_ENABLE);
-        mPieEnable.setChecked(Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.PIE_ENABLE, 1) == 1);
 
         mPieMenu = (CheckBoxPreference) prefSet.findPreference(PIE_MENU);
         mPieMenu.setChecked(Settings.System.getInt(mContext.getContentResolver(),
@@ -139,9 +133,6 @@ public class PieControls extends SettingsPreferenceFragment
         if (preference == mPieMenu) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PIE_MENU, mPieMenu.isChecked() ? 1 : 0);
-        } else if (preference == mPieEnable) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.PIE_ENABLE, mPieEnable.isChecked() ? 1 : 0);
         } else if (preference == mPieLastApp) {
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.PIE_LAST_APP, mPieLastApp.isChecked() ? 1 : 0);

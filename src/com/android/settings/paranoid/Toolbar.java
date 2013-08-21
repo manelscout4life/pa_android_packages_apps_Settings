@@ -130,10 +130,6 @@ public class Toolbar extends SettingsPreferenceFragment
             prefSet.removePreference(mQuickPullDown);
         }
 
-        if (!Utils.hasPhysicalKeys()) {
-            prefSet.removePreference(mPieEnable);
-        }
-
         // Only show the hardware keys config on a device that does not have a navbar
         final int deviceKeys = getResources().getInteger(
                 com.android.internal.R.integer.config_deviceHardwareKeys);
